@@ -1,3 +1,4 @@
+Integrantes: Diego O. Hernández, Jean Blanchet Aoyama, Jaime Oscar Durán González 
 Diferencia: Los datos personales pueden ser compartidos entre varias personas, mientras que la información personal, son un conjunto de datos personales que se asocian a un solo indivuiduo.
 
 ¿Es información? Una vez que estos datos son procesados y asociados a un identificador, si es información
