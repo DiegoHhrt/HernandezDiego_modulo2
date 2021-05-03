@@ -1,0 +1,21 @@
+1.- Inicio de sesión.
+2.- Unirse a un grupo o clase.
+3.- Crear un grupo o clase.
+4.- Crear y asignar tareas.
+5.- Subir asignaciones.
+6.- Botón de pánico para pedir ayuda a un profesor.
+7.- Recordatorio de tareas próximas a entregar.
+8.- Asignación de calificaciones.
+9.- Consulta de calificaciones por asiganción.
+10.- Abandonar grupo o clase.
+11.- Ver lista de archivos entregados.
+12.- Comentarios por asignación.
+13.- Pestaña de perfil con lista de clases a las que te has inscrito y opciones de personalización (Foto de perfíl, temas).
+14.- Apartado de personas inscritas por clase.
+15.- Plataforma integrada de exámenes.
+16.- Establecer un noombre de usuario independiente del nombre real.
+17.- Pestaña de configuración que permita modificar tus datos de contacto y preferencias de notificaciones.
+18.- Calendario con fechas de entrega y evaluaciones.
+19.- Apartado de cración de publicaciones para los alumnos.
+20.- Link de invitación para alumnos.
+21.- Mecánicas de rango que permiten la asignación de permisos (Profesor, jefe de grupo, encargados de otras cosas y alumnos regulares, etc.)
