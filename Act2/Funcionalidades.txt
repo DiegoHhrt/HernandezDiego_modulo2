@@ -1,3 +1,4 @@
+Integrantes: Diego O. Hernández, Jean Blanchet Aoyama, Jaime Oscar Durán González 
 1.- Inicio de sesión.
 2.- Unirse a un grupo o clase.
 3.- Crear un grupo o clase.
