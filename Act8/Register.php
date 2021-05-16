@@ -1,7 +1,6 @@
 <?php
     require_once("./config.php");
     $con=dataBaseConection();
-
     echo"
     <!DOCTYPE html>
     <html>
@@ -11,7 +10,7 @@
             <link rel='icon' href='https://images-na.ssl-images-amazon.com/images/I/51FhO1SEQyL._AC_.jpg' type='image/jpg'>
         </head>
         <body>";
-    if((isset($_POST["regist"]))||(isset($_SESSION["account"])))
+    if((isset($_SESSION["nAccount"]))||(isset($_POST["regist"])))
     {
         if((isset($_POST["regist"])))
         {
@@ -26,125 +25,17 @@
             $personalInfo=mysqli_query($con, $registInfo);
             if($personalInfo)
             {
+                session_name("exist");
                 session_start();
-                $_SESSION["account"]=$numCuenta;
-                header("location: ./Register.php");
+                $_SESSION["nAccount"]=$numCuenta;
+                header("location: ./Calificaciones.php");
             }
             else
             {
                 echo"
                 <h1>Algo salió mal, por favor intenta de nuevo</h1>
                 <br>
-                <a href='./session'>Regresar a ingresar número de cuenta</a>";
-            }
-        }
-        elseif((isset($_SESSION["account"])))
-        {
-            $cuarto=(isset($_POST["4to"]) && $_POST["4to"] != "")? $_POST["4to"]:false;
-            $quinto=(isset($_POST["5to"]) && $_POST["5to"] != "")? $_POST["5to"]:false;
-            $sexto=(isset($_POST["6to"]) && $_POST["6to"] != "")? $_POST["6to"]:false;
-            $iter=(isset($_POST["iteration"]) && $_POST["iteration"] != "")? $_POST["iteration"]:false;
-            $m=0;
-            $suma=0;
-            while($m<=$iter);
-            {
-                $cal=(isset($_POST[".$m."]) && $_POST[".$m."] != "")? $_POST[".$m."]:false;
-                $suma+=$cal;
-                $m++;
-            }
-            $prom=$suma/$iter;
-            if($cuarto===false)
-            {
-                $year=4;
-                $getMaterias="SELECT nombre FROM asignaturas WHERE Anio=".$year."";
-                echo "<form action='./register'>
-                    <fieldset>";
-                        $consultM=mysqli_query($con, $getMaterias);
-                        $x=0;
-                        while($rowM=mysqli_fetch_array($consultM, MYSQLI_NUM))
-                        {
-                            echo "<label for='".$x."'>
-                            ".$row[0]."<input type='text' name='".$x."' required>
-                            </label>
-                            <br><br>";
-                            $x++;
-                        }
-                        echo"<label for='iteration'>
-                            <input type='hidden' name='iteration' value='".$x."'>
-                        </label>";
-                        echo"<label for='4to'>
-                            <button type='submit' name='4to' value='4'>Registrar</button>
-                        </label>";
-                    echo"</fieldset>
-                </form>";
-            }
-            elseif($quinto===false)
-            {
-                $pushProm="INSERT INTO alumno (Promedio_cuarto) VALUES ('.$prom.')";
-                $prom=mysqli_query($con, $pushProm);
-                if($prom)
-                {
-                    $year=5;
-                    $getMaterias="SELECT nombre FROM asignaturas WHERE Anio=".$year."";
-                    echo "<form action='./register'>
-                        <fieldset>";
-                            $consultM=mysqli_query($con, $getMaterias);
-                            $x=0;
-                            while($rowM=mysqli_fetch_array($consultM, MYSQLI_NUM))
-                            {
-                                echo "<label for='".$x."'>
-                                ".$row[0]."<input type='text' name='".$x."'>
-                                </label>
-                                <br><br>";
-                                $x++;
-                            }
-                            echo"<label for='iteration'>
-                                <input type='hidden' name='iteration' value='".$x."' required>
-                            </label>";
-                            echo"<label for='5to'>
-                                <button type='submit' name='5to' value='5'>Registrar</button>
-                            </label>";
-                        echo"</fieldset>
-                    </form>";
-                }
-                else 
-                {
-                    echo "Algo salió mal";    
-                }
-            }
-            elseif($sexto===false)
-            {
-                $pushProm="INSERT INTO alumno (Promedio_quinto) VALUES ('.$prom.')";
-                $prom=mysqli_query($con, $pushProm);
-                if($prom)
-                {
-                    $year=6;
-                    $getMaterias="SELECT nombre FROM asignaturas WHERE Anio=".$year."";
-                    echo "<form action='./register'>
-                        <fieldset>";
-                            $consultM=mysqli_query($con, $getMaterias);
-                            $x=0;
-                            while($rowM=mysqli_fetch_array($consultM, MYSQLI_NUM))
-                            {
-                                echo "<label for='".$x."'>
-                                ".$row[0]."<input type='text' name='".$x."' required>
-                                </label>
-                                <br><br>";
-                                $x++;
-                            }
-                            echo"<label for='iteration'>
-                                <input type='hidden' name='iteration' value='".$x."'>
-                            </label>";
-                            echo"<label for='6to'>
-                                <button type='submit' name='6to' value='6'>Registrar</button>
-                            </label>";
-                        echo"</fieldset>
-                    </form>";
-                }
-                else 
-                {
-                    echo "Algo salió mal";    
-                }
+                <a href='./session.php'>Regresar a ingresar número de cuenta</a>";
             }
         }
     }
@@ -211,6 +102,7 @@
         }
         else
         {
+            session_name("exist");
             session_start();
             $_SESSION["account"]=$id;
             header("location: ./consultoria.php");
